@@ -1,8 +1,12 @@
 const express=require('express')
-const app=express()
+const app=express();
+const path=require('path')
 const port=process.env.port || 3001
+// app.get('/',(req,res)=>{
+//     res.send('html');  
+// })
 app.get('/',(req,res)=>{
-    res.send('html');  
+    res.sendFile(path.join(__dirname,'views','index.html'))
 })
 app.get('/users/:id',(req,res)=>{
     const id=req.params.id;
